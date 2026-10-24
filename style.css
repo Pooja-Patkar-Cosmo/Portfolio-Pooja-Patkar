@@ -1,0 +1,705 @@
+/* ==========================================================================
+   POOJA PATKAR PORTFOLIO STYLESHEET
+   ========================================================================== */
+
+/* Universal selector resetting default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base HTML root element */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 130px;
+}
+
+/* Ensure all targeted sections leave clean breathing room below the fixed navbar */
+section[id],
+#home,
+#about-section,
+#skills-section,
+#projects-section,
+#education-section,
+#contact-section {
+  scroll-margin-top: 130px;
+}
+
+/* Body element styling representing the whole document canvas */
+body {
+  background-color: #060606;
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(185, 28, 28, 0.22) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(150, 20, 20, 0.15) 0%, transparent 45%),
+    linear-gradient(180deg, #09090b 0%, #050505 100%);
+  background-attachment: fixed;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #d1d5db;
+  line-height: 1.6;
+  padding-top: 110px;
+  min-height: 100vh;
+}
+
+/* Headings typography */
+h1, h2, h3, h4 {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #f7f5f0;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Main content wrapper */
+.page-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 24px 80px 24px;
+}
+
+/* Strict Section Isolation: Prevents sections from overlapping or mixing heights */
+section {
+  clear: both;
+  width: 100%;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR (Fixed Position & Flexbox)
+   ========================================================================== */
+#main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(6, 6, 6, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.nav-profile-pic {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ea580c;
+  box-shadow: 0 0 14px rgba(234, 88, 12, 0.45);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-profile-pic:hover {
+  transform: scale(1.08);
+  border-color: #f97316;
+}
+
+.brand-name {
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #f3efe6;
+  font-size: 1.3rem;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  padding: 6px 0;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #f3efe6;
+}
+
+.nav-links a.active {
+  color: #d8be8a;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #d8be8a;
+}
+
+/* ==========================================================================
+   BUTTONS & COMMON COMPONENTS
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.btn-primary {
+  background-color: #ede8dc;
+  color: #0b0b0b;
+  border: 1px solid #ede8dc;
+}
+
+.btn-primary:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.12);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #dcd7ce;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Common Card Class */
+.card {
+  background-color: #0d0d0f;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  padding: 28px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(216, 190, 138, 0.28);
+}
+
+.card-eyebrow {
+  display: block;
+  color: #d8be8a;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-header {
+  margin-bottom: 28px;
+}
+
+.section-tag {
+  display: block;
+  font-size: 0.72rem;
+  color: #d8be8a;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   HERO SECTION (HOME PAGE PRESERVED)
+   ========================================================================== */
+.hero-section {
+  text-align: center;
+  padding: 40px 0 70px 0;
+  max-width: 860px;
+  margin: 0 auto 50px auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: #d8be8a;
+  background: rgba(216, 190, 138, 0.06);
+  border: 1px solid rgba(216, 190, 138, 0.22);
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.hero-section h1 {
+  font-size: 3.2rem;
+  line-height: 1.15;
+  color: #f7f5f0;
+  margin-bottom: 24px;
+}
+
+.accent-italic {
+  font-style: italic;
+  color: #d8be8a;
+}
+
+.hero-subtext {
+  font-size: 1.08rem;
+  color: #9ca3af;
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto 32px auto;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.hero-profile-wrap {
+  display: block;
+}
+
+.profile-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(216, 190, 138, 0.35);
+  box-shadow: 0 0 25px rgba(185, 28, 28, 0.2);
+}
+
+/* ==========================================================================
+   SECTION 1: ABOUT ME & SOFT SKILLS (TWO EQUAL HEIGHT CONTAINERS)
+   ========================================================================== */
+.dual-row {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 80px;
+}
+
+.box-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 460px;
+}
+
+.container-header {
+  margin-bottom: 16px;
+}
+
+.box-container h2 {
+  font-size: 1.85rem;
+  margin-bottom: 12px;
+}
+
+.box-container p {
+  color: #b0b4ba;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  line-height: 1.65;
+}
+
+.highlight-text {
+  color: #d8be8a;
+  font-weight: 500;
+}
+
+.about-links {
+  display: flex;
+  gap: 20px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.external-link {
+  color: #d8be8a;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.external-link:hover {
+  color: #ffffff;
+}
+
+/* Soft Skills Layout */
+.soft-skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.soft-skill-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.soft-skill-pill:hover {
+  border-color: rgba(216, 190, 138, 0.25);
+  background: rgba(216, 190, 138, 0.03);
+}
+
+.soft-icon {
+  color: #d8be8a;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+.soft-info h4 {
+  font-size: 0.95rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #f3efe6;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.soft-info p {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   SECTION 2: TECHNICAL SKILLS (3X3 GRID WITH UNIFORM HEIGHT)
+   ========================================================================== */
+.disciplines-section {
+  margin-bottom: 80px;
+}
+
+.disciplines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.slim-skill-card {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  background: #0d0d10;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  min-height: 105px;
+}
+
+.slim-skill-card:hover {
+  border-color: rgba(216, 190, 138, 0.4);
+  transform: translateY(-2px);
+}
+
+.skill-code {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.65rem;
+  color: #d8be8a;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.skill-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.05rem;
+  color: #f7f5f0;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   SECTION 3: PROJECTS (2X2 GRID WITH UNIFORM CARD HEIGHT)
+   ========================================================================== */
+.projects-showcase-section {
+  margin-bottom: 80px;
+}
+
+.projects-wireframe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.wireframe-project-card {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  align-items: stretch;
+  min-height: 255px;
+}
+
+.project-img-box {
+  flex: 0 0 135px;
+  background: #141418;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: 1.8rem;
+}
+
+.img-label {
+  font-size: 0.68rem;
+  color: #8e949e;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project-content-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-content-box h3 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  color: #f7f5f0;
+}
+
+.project-content-box p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.tech-pill-list {
+  margin-bottom: 10px;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #d1d5db;
+  border-radius: 3px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+.card-link {
+  color: #d8be8a;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-top: auto;
+}
+
+.card-link:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   SECTION 4: EDUCATION (4 UNIFORM HEIGHT CONTAINERS)
+   ========================================================================== */
+.education-section {
+  margin-bottom: 80px;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.edu-card {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  height: 100%;
+}
+
+.edu-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+
+.edu-institution {
+  color: #f3efe6;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.edu-year {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: #d8be8a;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.edu-desc {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   SECTION 5: CONTACT ME CARD (WIREFRAME ACTION CARD)
+   ========================================================================== */
+.contact-wireframe-section {
+  margin-bottom: 60px;
+}
+
+.contact-center-card {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 42px 32px;
+}
+
+.contact-center-card h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.contact-card-subtext {
+  font-size: 0.92rem;
+  color: #9ca3af;
+  margin-bottom: 24px;
+}
+
+.contact-email-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 20px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 280px;
+}
+
+.contact-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  color: #d8be8a;
+  text-transform: uppercase;
+}
+
+.email-link {
+  color: #f3efe6;
+  font-size: 1.05rem;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.email-link:hover {
+  color: #d8be8a;
+}
+
+.contact-buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-action-btn {
+  min-width: 130px;
+  border-color: rgba(255, 255, 255, 0.15);
+  font-size: 0.82rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .dual-row {
+    flex-direction: column;
+  }
+  .disciplines-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects-wireframe-grid {
+    grid-template-columns: 1fr;
+  }
+  .education-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #main-nav {
+    padding: 16px 20px;
+  }
+  .nav-links {
+    gap: 14px;
+  }
+  .nav-links a {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .disciplines-grid {
+    grid-template-columns: 1fr;
+  }
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+  .wireframe-project-card {
+    flex-direction: column;
+  }
+  .project-img-box {
+    height: 120px;
+    width: 100%;
+  }
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+}
